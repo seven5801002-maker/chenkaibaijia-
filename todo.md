@@ -67,3 +67,7 @@
 
 - [x] 將黃色的「加 Line 了解更多」按鈕改短並靠左
 - [x] 將社群連結（Facebook、YouTube、Instagram、Telegram）改成 2×2 的網格排列
+
+## 用戶反饋修改 6
+
+- [x] 將左上角的 App logo 改成用戶的大頶照

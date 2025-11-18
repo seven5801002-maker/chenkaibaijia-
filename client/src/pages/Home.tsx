@@ -13,7 +13,7 @@ export default function Home() {
       <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto flex items-center justify-between py-4">
           <div className="flex items-center gap-3">
-            <img src={APP_LOGO} alt="陳楷百家" className="h-10 w-10" />
+            <img src={APP_LOGO} alt="陳楷百家" className="h-12 w-12 rounded-full object-cover border-2 border-primary" />
             <h1 className="text-2xl font-bold text-foreground">陳楷百家 - <span className="text-primary">(本人代理)</span></h1>
           </div>
           <nav className="flex items-center gap-6">
