@@ -166,15 +166,15 @@ export default function Dashboard() {
               <CardDescription>常用功能快速入口</CardDescription>
             </CardHeader>
             <CardContent className="space-y-3">
-              <Link href="/contact">
-                <Button variant="outline" className="w-full justify-start">
-                  <MessageCircle className="mr-2 h-4 w-4" />
-                  聯繫表單
-                </Button>
-              </Link>
               <a href="https://www.youtube.com/@mt5801-v4b/shorts" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" className="w-full justify-start">
                   查看教學影片
+                </Button>
+              </a>
+              <a href="https://page.line.me/mt5801" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="w-full justify-start">
+                  <MessageCircle className="mr-2 h-4 w-4" />
+                  加 Line 了解更多
                 </Button>
               </a>
               <Link href="/">

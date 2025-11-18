@@ -2,7 +2,7 @@ import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { APP_LOGO, APP_TITLE, getLoginUrl } from "@/const";
-import { ArrowRight, CheckCircle2, MessageCircle, Instagram, Send } from "lucide-react";
+import { ArrowRight, CheckCircle2, MessageCircle, Instagram, Send, Youtube } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Home() {
@@ -11,13 +11,19 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
-      <header className="border-b border-border bg-card">
+      <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto flex items-center justify-between py-4">
           <div className="flex items-center gap-3">
             <img src={APP_LOGO} alt={APP_TITLE} className="h-10 w-10" />
             <h1 className="text-2xl font-bold text-primary">{APP_TITLE}</h1>
           </div>
           <nav className="flex items-center gap-4">
+            <a href="https://www.youtube.com/@mt5801-v4b/shorts" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              <Youtube className="h-6 w-6" />
+            </a>
+            <a href="https://www.instagram.com/seven580108/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              <Instagram className="h-6 w-6" />
+            </a>
             {isAuthenticated ? (
               <>
                 <Link href="/dashboard">
@@ -39,11 +45,12 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-background via-card to-background py-20">
-        <div className="container mx-auto">
+      <section className="relative overflow-hidden py-20">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5"></div>
+        <div className="container mx-auto relative z-10">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
             <div className="space-y-6">
-              <div className="inline-block rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
+              <div className="inline-block rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary border border-primary/20">
                 五路規律 59配注創始人
               </div>
               <h2 className="text-4xl font-bold leading-tight text-foreground md:text-5xl lg:text-6xl">
@@ -59,54 +66,45 @@ export default function Home() {
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <a href="https://page.line.me/mt5801" target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="w-full sm:w-auto">
+                  <Button size="lg" className="w-full sm:w-auto group">
                     <MessageCircle className="mr-2 h-5 w-5" />
-                    加入 Line 群組
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    加 Line 了解更多
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </a>
-                <Link href="/contact">
-                  <Button size="lg" variant="outline" className="w-full sm:w-auto">
-                    了解更多
-                  </Button>
-                </Link>
+              </div>
+              
+              {/* Social Links */}
+              <div className="flex items-center gap-4 pt-4">
+                <span className="text-sm text-muted-foreground">追蹤我們：</span>
+                <a href="https://www.youtube.com/@mt5801-v4b/shorts" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                  <Youtube className="h-5 w-5" />
+                  <span className="text-sm">YouTube</span>
+                </a>
+                <a href="https://www.instagram.com/seven580108/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                  <Instagram className="h-5 w-5" />
+                  <span className="text-sm">Instagram</span>
+                </a>
+                <a href="https://t.me/ii5801" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                  <Send className="h-5 w-5" />
+                  <span className="text-sm">Telegram</span>
+                </a>
               </div>
             </div>
+            
+            {/* YouTube Video */}
             <div className="relative">
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 p-8">
-                <Card className="h-full bg-card/50 backdrop-blur">
-                  <CardContent className="flex h-full flex-col justify-center p-8">
-                    <div className="space-y-6">
-                      <div className="flex items-start gap-4">
-                        <div className="rounded-full bg-primary p-3">
-                          <CheckCircle2 className="h-6 w-6 text-primary-foreground" />
-                        </div>
-                        <div>
-                          <h3 className="font-semibold text-foreground">專業技巧</h3>
-                          <p className="text-sm text-muted-foreground">路單判讀、機率分析、風險管理</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-4">
-                        <div className="rounded-full bg-primary p-3">
-                          <CheckCircle2 className="h-6 w-6 text-primary-foreground" />
-                        </div>
-                        <div>
-                          <h3 className="font-semibold text-foreground">心態建設</h3>
-                          <p className="text-sm text-muted-foreground">賭場心理學、情緒管理、紀律訓練</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-4">
-                        <div className="rounded-full bg-primary p-3">
-                          <CheckCircle2 className="h-6 w-6 text-primary-foreground" />
-                        </div>
-                        <div>
-                          <h3 className="font-semibold text-foreground">實戰解析</h3>
-                          <p className="text-sm text-muted-foreground">真實案例、獲利分享、一對一指導</p>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+              <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl border border-border">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/CN5Deuv7RVo"
+                  title="陳楷百家教學影片"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                ></iframe>
               </div>
             </div>
           </div>
@@ -114,7 +112,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-card">
+      <section className="py-20 bg-card/30">
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-foreground md:text-4xl mb-4">
@@ -124,8 +122,8 @@ export default function Home() {
               專業、誠信、穩定，是您最值得信賴的代理
             </p>
           </div>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <Card className="bg-background border-border">
+          <div className="grid gap-8 md:grid-cols-3">
+            <Card className="bg-card/50 backdrop-blur border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
               <CardContent className="p-6">
                 <div className="mb-4 inline-block rounded-lg bg-primary/10 p-3">
                   <CheckCircle2 className="h-8 w-8 text-primary" />
@@ -136,7 +134,7 @@ export default function Home() {
                 </p>
               </CardContent>
             </Card>
-            <Card className="bg-background border-border">
+            <Card className="bg-card/50 backdrop-blur border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
               <CardContent className="p-6">
                 <div className="mb-4 inline-block rounded-lg bg-primary/10 p-3">
                   <CheckCircle2 className="h-8 w-8 text-primary" />
@@ -147,7 +145,7 @@ export default function Home() {
                 </p>
               </CardContent>
             </Card>
-            <Card className="bg-background border-border">
+            <Card className="bg-card/50 backdrop-blur border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
               <CardContent className="p-6">
                 <div className="mb-4 inline-block rounded-lg bg-primary/10 p-3">
                   <CheckCircle2 className="h-8 w-8 text-primary" />
@@ -162,33 +160,70 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Core Values Section */}
+      <section className="py-20">
+        <div className="container mx-auto">
+          <div className="max-w-4xl mx-auto">
+            <Card className="bg-gradient-to-br from-primary/10 via-card to-accent/10 border-primary/20">
+              <CardContent className="p-8 md:p-12">
+                <h2 className="text-3xl font-bold text-foreground mb-8 text-center">核心價值</h2>
+                <div className="grid gap-6 md:grid-cols-3">
+                  <div className="text-center space-y-3">
+                    <div className="inline-block rounded-full bg-primary/20 p-4 mb-2">
+                      <CheckCircle2 className="h-8 w-8 text-primary" />
+                    </div>
+                    <h3 className="font-semibold text-lg text-foreground">思維拆解</h3>
+                    <p className="text-sm text-muted-foreground">
+                      路單判讀、機率分析、風險管理
+                    </p>
+                  </div>
+                  <div className="text-center space-y-3">
+                    <div className="inline-block rounded-full bg-primary/20 p-4 mb-2">
+                      <CheckCircle2 className="h-8 w-8 text-primary" />
+                    </div>
+                    <h3 className="font-semibold text-lg text-foreground">心態訓練</h3>
+                    <p className="text-sm text-muted-foreground">
+                      賭場心理學、情緒管理、紀律訓練
+                    </p>
+                  </div>
+                  <div className="text-center space-y-3">
+                    <div className="inline-block rounded-full bg-primary/20 p-4 mb-2">
+                      <CheckCircle2 className="h-8 w-8 text-primary" />
+                    </div>
+                    <h3 className="font-semibold text-lg text-foreground">實戰解析</h3>
+                    <p className="text-sm text-muted-foreground">
+                      真實案例、獲利分享、一對一指導
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/10 via-background to-accent/10">
-        <div className="container mx-auto text-center">
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-accent/10"></div>
+        <div className="container mx-auto text-center relative z-10">
           <h2 className="text-3xl font-bold text-foreground md:text-4xl mb-4">
             準備好開始了嗎？
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             立即加入陳楷百家，開啟您的穩定獲利之路。無論您是新手還是老手，我們都會提供最適合您的指導。
           </p>
-          <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-            <a href="https://page.line.me/mt5801" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="w-full sm:w-auto">
-                <MessageCircle className="mr-2 h-5 w-5" />
-                立即加入 Line
-              </Button>
-            </a>
-            <Link href="/contact">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto">
-                聯繫我們
-              </Button>
-            </Link>
-          </div>
+          <a href="https://page.line.me/mt5801" target="_blank" rel="noopener noreferrer">
+            <Button size="lg" className="group">
+              <MessageCircle className="mr-2 h-5 w-5" />
+              立即加入 Line
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </a>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-card py-12">
+      <footer className="border-t border-border bg-card/30 py-12">
         <div className="container mx-auto">
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <div>
@@ -206,8 +241,8 @@ export default function Home() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact">
-                    <a className="hover:text-primary transition-colors">聯繫我們</a>
+                  <Link href="/dashboard">
+                    <a className="hover:text-primary transition-colors">會員中心</a>
                   </Link>
                 </li>
               </ul>
@@ -238,6 +273,9 @@ export default function Home() {
             <div>
               <h3 className="mb-4 text-lg font-semibold text-foreground">社群媒體</h3>
               <div className="flex gap-4">
+                <a href="https://www.youtube.com/@mt5801-v4b/shorts" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Youtube className="h-6 w-6" />
+                </a>
                 <a href="https://www.instagram.com/seven580108/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                   <Instagram className="h-6 w-6" />
                 </a>
