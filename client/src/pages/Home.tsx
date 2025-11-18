@@ -1,12 +1,11 @@
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { APP_LOGO, APP_TITLE, getLoginUrl } from "@/const";
-import { ArrowRight, CheckCircle2, MessageCircle, Instagram, Send, Youtube } from "lucide-react";
-import { Link } from "wouter";
+import { APP_LOGO, APP_TITLE } from "@/const";
+import { ArrowRight, CheckCircle2, MessageCircle, Instagram, Send, Youtube, Facebook, ExternalLink } from "lucide-react";
 
 export default function Home() {
-  const { user, isAuthenticated } = useAuth();
+  const { user } = useAuth();
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -18,28 +17,15 @@ export default function Home() {
             <h1 className="text-2xl font-bold text-primary">{APP_TITLE}</h1>
           </div>
           <nav className="flex items-center gap-4">
+            <a href="https://www.facebook.com/profile.php?id=61582415337645" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              <Facebook className="h-6 w-6" />
+            </a>
             <a href="https://www.youtube.com/@mt5801-v4b/shorts" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
               <Youtube className="h-6 w-6" />
             </a>
             <a href="https://www.instagram.com/seven580108/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
               <Instagram className="h-6 w-6" />
             </a>
-            {isAuthenticated ? (
-              <>
-                <Link href="/dashboard">
-                  <Button variant="ghost">我的帳戶</Button>
-                </Link>
-              </>
-            ) : (
-              <>
-                <a href={getLoginUrl()}>
-                  <Button variant="outline">登入</Button>
-                </a>
-                <a href={getLoginUrl()}>
-                  <Button>立即加入</Button>
-                </a>
-              </>
-            )}
           </nav>
         </div>
       </header>
@@ -77,6 +63,10 @@ export default function Home() {
               {/* Social Links */}
               <div className="flex items-center gap-4 pt-4">
                 <span className="text-sm text-muted-foreground">追蹤我們：</span>
+                <a href="https://www.facebook.com/profile.php?id=61582415337645" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                  <Facebook className="h-5 w-5" />
+                  <span className="text-sm">Facebook</span>
+                </a>
                 <a href="https://www.youtube.com/@mt5801-v4b/shorts" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                   <Youtube className="h-5 w-5" />
                   <span className="text-sm">YouTube</span>
@@ -111,15 +101,64 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Casino Registration Section */}
       <section className="py-20 bg-card/30">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-foreground md:text-4xl mb-4">
+              娛樂城平台註冊連結
+            </h2>
+            <p className="text-lg text-primary font-semibold">
+              註冊好 加LINE 跟我領取優惠
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
+            <Card className="bg-card/50 backdrop-blur border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
+              <CardContent className="p-6 text-center">
+                <h3 className="text-2xl font-bold text-primary mb-4">大老爺 娛樂城</h3>
+                <a href="https://CZ5801.gm1688.net" target="_blank" rel="noopener noreferrer">
+                  <Button className="w-full group">
+                    立即註冊
+                    <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </a>
+              </CardContent>
+            </Card>
+            <Card className="bg-card/50 backdrop-blur border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
+              <CardContent className="p-6 text-center">
+                <h3 className="text-2xl font-bold text-primary mb-4">雄厚 娛樂城</h3>
+                <a href="https://CZ5801.meta1788.com" target="_blank" rel="noopener noreferrer">
+                  <Button className="w-full group">
+                    立即註冊
+                    <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </a>
+              </CardContent>
+            </Card>
+            <Card className="bg-card/50 backdrop-blur border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
+              <CardContent className="p-6 text-center">
+                <h3 className="text-2xl font-bold text-primary mb-4">八方娛樂城</h3>
+                <a href="https://CZ5801.918ofa.net" target="_blank" rel="noopener noreferrer">
+                  <Button className="w-full group">
+                    立即註冊
+                    <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </a>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20">
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-foreground md:text-4xl mb-4">
               為什麼選擇陳楷百家？
             </h2>
             <p className="text-lg text-muted-foreground">
-              專業、誠信、穩定，是您最值得信賴的代理
+              優質代理服務 及時回復 能幫你解決平台，遊戲上任何問題
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-3">
@@ -161,7 +200,7 @@ export default function Home() {
       </section>
 
       {/* Core Values Section */}
-      <section className="py-20">
+      <section className="py-20 bg-card/30">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
             <Card className="bg-gradient-to-br from-primary/10 via-card to-accent/10 border-primary/20">
@@ -236,14 +275,16 @@ export default function Home() {
               <h3 className="mb-4 text-lg font-semibold text-foreground">快速連結</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>
-                  <Link href="/">
-                    <a className="hover:text-primary transition-colors">首頁</a>
-                  </Link>
+                  <a href="/" className="hover:text-primary transition-colors">首頁</a>
                 </li>
                 <li>
-                  <Link href="/dashboard">
-                    <a className="hover:text-primary transition-colors">會員中心</a>
-                  </Link>
+                  <a href="https://CZ5801.gm1688.net" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">大老爺娛樂城</a>
+                </li>
+                <li>
+                  <a href="https://CZ5801.meta1788.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">雄厚娛樂城</a>
+                </li>
+                <li>
+                  <a href="https://CZ5801.918ofa.net" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">八方娛樂城</a>
                 </li>
               </ul>
             </div>
@@ -273,6 +314,9 @@ export default function Home() {
             <div>
               <h3 className="mb-4 text-lg font-semibold text-foreground">社群媒體</h3>
               <div className="flex gap-4">
+                <a href="https://www.facebook.com/profile.php?id=61582415337645" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Facebook className="h-6 w-6" />
+                </a>
                 <a href="https://www.youtube.com/@mt5801-v4b/shorts" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                   <Youtube className="h-6 w-6" />
                 </a>
