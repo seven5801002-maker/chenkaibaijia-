@@ -1,33 +1,260 @@
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 import { APP_LOGO, APP_TITLE, getLoginUrl } from "@/const";
-import { Streamdown } from 'streamdown';
+import { ArrowRight, CheckCircle2, MessageCircle, Instagram, Send } from "lucide-react";
+import { Link } from "wouter";
 
-/**
- * All content in this page are only for example, replace with your own feature implementation
- * When building pages, remember your instructions in Frontend Workflow, Frontend Best Practices, Design Guide and Common Pitfalls
- */
 export default function Home() {
-  // The userAuth hooks provides authentication state
-  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
-  let { user, loading, error, isAuthenticated, logout } = useAuth();
-
-  // If theme is switchable in App.tsx, we can implement theme toggling like this:
-  // const { theme, toggleTheme } = useTheme();
-
-  // Use APP_LOGO (as image src) and APP_TITLE if needed
+  const { user, isAuthenticated } = useAuth();
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <main>
-        {/* Example: lucide-react for icons */}
-        <Loader2 className="animate-spin" />
-        Example Page
-        {/* Example: Streamdown for markdown rendering */}
-        <Streamdown>Any **markdown** content</Streamdown>
-        <Button variant="default">Example Button</Button>
-      </main>
+    <div className="min-h-screen bg-background text-foreground">
+      {/* Header */}
+      <header className="border-b border-border bg-card">
+        <div className="container mx-auto flex items-center justify-between py-4">
+          <div className="flex items-center gap-3">
+            <img src={APP_LOGO} alt={APP_TITLE} className="h-10 w-10" />
+            <h1 className="text-2xl font-bold text-primary">{APP_TITLE}</h1>
+          </div>
+          <nav className="flex items-center gap-4">
+            {isAuthenticated ? (
+              <>
+                <Link href="/dashboard">
+                  <Button variant="ghost">我的帳戶</Button>
+                </Link>
+              </>
+            ) : (
+              <>
+                <a href={getLoginUrl()}>
+                  <Button variant="outline">登入</Button>
+                </a>
+                <a href={getLoginUrl()}>
+                  <Button>立即加入</Button>
+                </a>
+              </>
+            )}
+          </nav>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-background via-card to-background py-20">
+        <div className="container mx-auto">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
+            <div className="space-y-6">
+              <div className="inline-block rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
+                五路規律 59配注創始人
+              </div>
+              <h2 className="text-4xl font-bold leading-tight text-foreground md:text-5xl lg:text-6xl">
+                致力於幫助您理解<br />
+                <span className="text-primary">百家樂的思維邏輯</span>
+              </h2>
+              <p className="text-lg text-muted-foreground md:text-xl">
+                思維拆解 × 心態訓練 × 實戰解析
+              </p>
+              <p className="text-base text-muted-foreground">
+                知名老字號品牌 總線招收 代理 會員🤝<br />
+                全台可面交 誠信 口碑 值得信賴
+              </p>
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <a href="https://page.line.me/mt5801" target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" className="w-full sm:w-auto">
+                    <MessageCircle className="mr-2 h-5 w-5" />
+                    加入 Line 群組
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </a>
+                <Link href="/contact">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto">
+                    了解更多
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 p-8">
+                <Card className="h-full bg-card/50 backdrop-blur">
+                  <CardContent className="flex h-full flex-col justify-center p-8">
+                    <div className="space-y-6">
+                      <div className="flex items-start gap-4">
+                        <div className="rounded-full bg-primary p-3">
+                          <CheckCircle2 className="h-6 w-6 text-primary-foreground" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold text-foreground">專業技巧</h3>
+                          <p className="text-sm text-muted-foreground">路單判讀、機率分析、風險管理</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-4">
+                        <div className="rounded-full bg-primary p-3">
+                          <CheckCircle2 className="h-6 w-6 text-primary-foreground" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold text-foreground">心態建設</h3>
+                          <p className="text-sm text-muted-foreground">賭場心理學、情緒管理、紀律訓練</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-4">
+                        <div className="rounded-full bg-primary p-3">
+                          <CheckCircle2 className="h-6 w-6 text-primary-foreground" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold text-foreground">實戰解析</h3>
+                          <p className="text-sm text-muted-foreground">真實案例、獲利分享、一對一指導</p>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 bg-card">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-foreground md:text-4xl mb-4">
+              為什麼選擇陳楷百家？
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              專業、誠信、穩定，是您最值得信賴的代理
+            </p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <Card className="bg-background border-border">
+              <CardContent className="p-6">
+                <div className="mb-4 inline-block rounded-lg bg-primary/10 p-3">
+                  <CheckCircle2 className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="mb-2 text-xl font-semibold text-foreground">全台可面交</h3>
+                <p className="text-muted-foreground">
+                  提供全台面交服務，讓您更安心、更放心地開始您的投資之旅。
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="bg-background border-border">
+              <CardContent className="p-6">
+                <div className="mb-4 inline-block rounded-lg bg-primary/10 p-3">
+                  <CheckCircle2 className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="mb-2 text-xl font-semibold text-foreground">誠信口碑</h3>
+                <p className="text-muted-foreground">
+                  多年經營，累積無數成功案例，口碑保證，值得您的信賴。
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="bg-background border-border">
+              <CardContent className="p-6">
+                <div className="mb-4 inline-block rounded-lg bg-primary/10 p-3">
+                  <CheckCircle2 className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="mb-2 text-xl font-semibold text-foreground">專業指導</h3>
+                <p className="text-muted-foreground">
+                  提供一對一專業指導，從思維拆解到實戰解析，全方位協助您提升勝率。
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-br from-primary/10 via-background to-accent/10">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl font-bold text-foreground md:text-4xl mb-4">
+            準備好開始了嗎？
+          </h2>
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+            立即加入陳楷百家，開啟您的穩定獲利之路。無論您是新手還是老手，我們都會提供最適合您的指導。
+          </p>
+          <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+            <a href="https://page.line.me/mt5801" target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="w-full sm:w-auto">
+                <MessageCircle className="mr-2 h-5 w-5" />
+                立即加入 Line
+              </Button>
+            </a>
+            <Link href="/contact">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto">
+                聯繫我們
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-border bg-card py-12">
+        <div className="container mx-auto">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <div>
+              <h3 className="mb-4 text-lg font-semibold text-foreground">關於我們</h3>
+              <p className="text-sm text-muted-foreground">
+                陳楷百家致力於幫助您理解百家樂的思維邏輯，並提供全面的心態訓練。
+              </p>
+            </div>
+            <div>
+              <h3 className="mb-4 text-lg font-semibold text-foreground">快速連結</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>
+                  <Link href="/">
+                    <a className="hover:text-primary transition-colors">首頁</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact">
+                    <a className="hover:text-primary transition-colors">聯繫我們</a>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="mb-4 text-lg font-semibold text-foreground">聯繫方式</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-center gap-2">
+                  <MessageCircle className="h-4 w-4" />
+                  <a href="https://page.line.me/mt5801" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                    Line: @mt5801
+                  </a>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Send className="h-4 w-4" />
+                  <a href="https://t.me/ii5801" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                    Telegram: @ii5801
+                  </a>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Instagram className="h-4 w-4" />
+                  <a href="https://www.instagram.com/seven580108/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                    IG: seven580108
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="mb-4 text-lg font-semibold text-foreground">社群媒體</h3>
+              <div className="flex gap-4">
+                <a href="https://www.instagram.com/seven580108/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Instagram className="h-6 w-6" />
+                </a>
+                <a href="https://page.line.me/mt5801" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                  <MessageCircle className="h-6 w-6" />
+                </a>
+                <a href="https://t.me/ii5801" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Send className="h-6 w-6" />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="mt-8 border-t border-border pt-8 text-center text-sm text-muted-foreground">
+            <p>&copy; 2025 {APP_TITLE}. 保留所有權利。</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
