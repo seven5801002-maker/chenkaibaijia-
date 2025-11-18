@@ -57,9 +57,9 @@ export default function Home() {
                 知名老字號品牌 總線招收 代理 會員🤝<br />
                 全台可面交 誠信 口碑 值得信賴
               </p>
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <a href="https://page.line.me/mt5801" target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="w-full sm:w-auto group">
+              <div className="flex flex-col gap-4">
+                <a href="https://page.line.me/mt5801" target="_blank" rel="noopener noreferrer" className="w-fit">
+                  <Button className="group">
                     <MessageCircle className="mr-2 h-5 w-5" />
                     加 Line 了解更多
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -72,21 +72,21 @@ export default function Home() {
                 <div className="flex items-center gap-4 mb-4">
                   <span className="text-lg font-semibold text-primary">追蹤我們：</span>
                 </div>
-                <div className="flex items-center gap-6">
-                  <a href="https://www.facebook.com/profile.php?id=61582415337645" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-primary/10 hover:bg-primary/20 px-4 py-2 rounded-lg transition-all group">
-                    <Facebook className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
+                <div className="grid grid-cols-2 gap-4 w-fit">
+                  <a href="https://www.facebook.com/profile.php?id=61582415337645" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 bg-primary/10 hover:bg-primary/20 px-6 py-4 rounded-lg transition-all group">
+                    <Facebook className="h-8 w-8 text-primary group-hover:scale-110 transition-transform" />
                     <span className="text-sm font-medium text-primary">Facebook</span>
                   </a>
-                  <a href="https://www.youtube.com/@mt5801-v4b/shorts" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-primary/10 hover:bg-primary/20 px-4 py-2 rounded-lg transition-all group">
-                    <Youtube className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
+                  <a href="https://www.youtube.com/@mt5801-v4b/shorts" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 bg-primary/10 hover:bg-primary/20 px-6 py-4 rounded-lg transition-all group">
+                    <Youtube className="h-8 w-8 text-primary group-hover:scale-110 transition-transform" />
                     <span className="text-sm font-medium text-primary">YouTube</span>
                   </a>
-                  <a href="https://www.instagram.com/seven580108/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-primary/10 hover:bg-primary/20 px-4 py-2 rounded-lg transition-all group">
-                    <Instagram className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
+                  <a href="https://www.instagram.com/seven580108/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 bg-primary/10 hover:bg-primary/20 px-6 py-4 rounded-lg transition-all group">
+                    <Instagram className="h-8 w-8 text-primary group-hover:scale-110 transition-transform" />
                     <span className="text-sm font-medium text-primary">Instagram</span>
                   </a>
-                  <a href="https://t.me/ii5801" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-primary/10 hover:bg-primary/20 px-4 py-2 rounded-lg transition-all group">
-                    <Send className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
+                  <a href="https://t.me/ii5801" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 bg-primary/10 hover:bg-primary/20 px-6 py-4 rounded-lg transition-all group">
+                    <Send className="h-8 w-8 text-primary group-hover:scale-110 transition-transform" />
                     <span className="text-sm font-medium text-primary">Telegram</span>
                   </a>
                 </div>
