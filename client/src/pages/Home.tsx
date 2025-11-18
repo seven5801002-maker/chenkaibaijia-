@@ -13,18 +13,25 @@ export default function Home() {
       <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto flex items-center justify-between py-4">
           <div className="flex items-center gap-3">
-            <img src={APP_LOGO} alt={APP_TITLE} className="h-10 w-10" />
-            <h1 className="text-2xl font-bold text-primary">{APP_TITLE}</h1>
+            <img src={APP_LOGO} alt="陳楷百家" className="h-10 w-10" />
+            <h1 className="text-2xl font-bold text-foreground">陳楷百家 - <span className="text-primary">(本人代理)</span></h1>
           </div>
-          <nav className="flex items-center gap-4">
-            <a href="https://www.facebook.com/profile.php?id=61582415337645" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-              <Facebook className="h-6 w-6" />
+          <nav className="flex items-center gap-6">
+            <a href="https://www.facebook.com/profile.php?id=61582415337645" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors group">
+              <Facebook className="h-7 w-7 group-hover:scale-110 transition-transform" />
+              <span className="text-sm font-medium hidden md:inline">Facebook</span>
             </a>
-            <a href="https://www.youtube.com/@mt5801-v4b/shorts" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-              <Youtube className="h-6 w-6" />
+            <a href="https://www.youtube.com/@mt5801-v4b/shorts" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors group">
+              <Youtube className="h-7 w-7 group-hover:scale-110 transition-transform" />
+              <span className="text-sm font-medium hidden md:inline">YouTube</span>
             </a>
-            <a href="https://www.instagram.com/seven580108/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-              <Instagram className="h-6 w-6" />
+            <a href="https://www.instagram.com/seven580108/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors group">
+              <Instagram className="h-7 w-7 group-hover:scale-110 transition-transform" />
+              <span className="text-sm font-medium hidden md:inline">Instagram</span>
+            </a>
+            <a href="https://t.me/ii5801" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors group">
+              <Send className="h-7 w-7 group-hover:scale-110 transition-transform" />
+              <span className="text-sm font-medium hidden md:inline">Telegram</span>
             </a>
           </nav>
         </div>
@@ -61,24 +68,28 @@ export default function Home() {
               </div>
               
               {/* Social Links */}
-              <div className="flex items-center gap-4 pt-4">
-                <span className="text-sm text-muted-foreground">追蹤我們：</span>
-                <a href="https://www.facebook.com/profile.php?id=61582415337645" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                  <Facebook className="h-5 w-5" />
-                  <span className="text-sm">Facebook</span>
-                </a>
-                <a href="https://www.youtube.com/@mt5801-v4b/shorts" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                  <Youtube className="h-5 w-5" />
-                  <span className="text-sm">YouTube</span>
-                </a>
-                <a href="https://www.instagram.com/seven580108/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                  <Instagram className="h-5 w-5" />
-                  <span className="text-sm">Instagram</span>
-                </a>
-                <a href="https://t.me/ii5801" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                  <Send className="h-5 w-5" />
-                  <span className="text-sm">Telegram</span>
-                </a>
+              <div className="pt-6">
+                <div className="flex items-center gap-4 mb-4">
+                  <span className="text-lg font-semibold text-primary">追蹤我們：</span>
+                </div>
+                <div className="flex items-center gap-6">
+                  <a href="https://www.facebook.com/profile.php?id=61582415337645" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-primary/10 hover:bg-primary/20 px-4 py-2 rounded-lg transition-all group">
+                    <Facebook className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
+                    <span className="text-sm font-medium text-primary">Facebook</span>
+                  </a>
+                  <a href="https://www.youtube.com/@mt5801-v4b/shorts" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-primary/10 hover:bg-primary/20 px-4 py-2 rounded-lg transition-all group">
+                    <Youtube className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
+                    <span className="text-sm font-medium text-primary">YouTube</span>
+                  </a>
+                  <a href="https://www.instagram.com/seven580108/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-primary/10 hover:bg-primary/20 px-4 py-2 rounded-lg transition-all group">
+                    <Instagram className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
+                    <span className="text-sm font-medium text-primary">Instagram</span>
+                  </a>
+                  <a href="https://t.me/ii5801" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-primary/10 hover:bg-primary/20 px-4 py-2 rounded-lg transition-all group">
+                    <Send className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
+                    <span className="text-sm font-medium text-primary">Telegram</span>
+                  </a>
+                </div>
               </div>
             </div>
             
