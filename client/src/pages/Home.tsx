@@ -37,7 +37,7 @@ export default function Home() {
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
             <div className="space-y-6">
               <div className="inline-block rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary border border-primary/20">
-                五路規律 59配注創始人
+                基本五路規律解析--觀測法教學---59配住--心態調整
               </div>
               <h2 className="text-4xl font-bold leading-tight text-foreground md:text-5xl lg:text-6xl">
                 致力於幫助您理解<br />
@@ -108,8 +108,11 @@ export default function Home() {
             <h2 className="text-3xl font-bold text-foreground md:text-4xl mb-4">
               娛樂城平台註冊連結
             </h2>
-            <p className="text-lg text-primary font-semibold">
+            <p className="text-lg text-primary font-semibold mb-2">
               註冊好 加LINE 跟我領取優惠
+            </p>
+            <p className="text-sm text-muted-foreground">
+              PS:必須用以下連結註冊才可以領優惠
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
@@ -157,9 +160,17 @@ export default function Home() {
             <h2 className="text-3xl font-bold text-foreground md:text-4xl mb-4">
               為什麼選擇陳楷百家？
             </h2>
-            <p className="text-lg text-muted-foreground">
-              優質代理服務 及時回復 能幫你解決平台，遊戲上任何問題
-            </p>
+            <div className="max-w-3xl mx-auto space-y-3">
+              <p className="text-lg text-muted-foreground">
+                優質代理服務 及時回復 能幫你解決平台，遊戲上任何問題
+              </p>
+              <p className="text-lg text-primary font-semibold">
+                誠信是現在這個社會最缺乏的東西
+              </p>
+              <p className="text-lg text-muted-foreground">
+                我始終相信 真心相待能換來長久的情誼
+              </p>
+            </div>
           </div>
           <div className="grid gap-8 md:grid-cols-3">
             <Card className="bg-card/50 backdrop-blur border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
