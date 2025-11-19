@@ -122,8 +122,8 @@ export default function Home() {
             <p className="text-lg text-primary font-semibold mb-2">
               註冊好 加LINE 跟我領取優惠
             </p>
-            <p className="text-sm text-muted-foreground">
-              PS:必須用以下連結註冊才可以領優惠
+            <p className="text-sm font-semibold text-red-600">
+              注意:必須用以下連結註冊才可以領優惠
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
